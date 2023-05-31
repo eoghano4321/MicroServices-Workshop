@@ -119,7 +119,7 @@ Here we're going to use cURL to access the services via the command line. You ca
 
 - Create a new order:
   ```bash
-  curl -X POST -H "Content-Type: application/json" -d '{"orderId": "order-123", "customerId": 456, "productId": 1, "quantity": 2}' http://localhost:2223/orders
+  curl -X POST -H "Content-Type: application/json" -d '{"orderId": "order-123", "customerId": 456, "productId": 1, "quantity": 2, "orderStatus": "open"}' http://localhost:2223/orders
   ```
 
 - Get an order by ID:
