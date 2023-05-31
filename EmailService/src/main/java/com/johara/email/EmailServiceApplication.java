@@ -15,5 +15,4 @@ public class EmailServiceApplication {
 		System.setProperty("spring.config.name", "email-service");
 		SpringApplication.run(EmailServiceApplication.class, args);
 	}
-3
 }
