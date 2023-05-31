@@ -48,11 +48,12 @@ public class OrderController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
+    public ResponseEntity<Order> deleteOrder(@PathVariable Long id) {
         Optional<Order> maybeExistingOrder = orderRepository.findById(id);
+
         if (maybeExistingOrder.isPresent()) {
-            orderRepository.deleteById(id);
-            return ResponseEntity.noContent().build();
+            Order deletedOrder = orderService.deleteOrder(orderRepository.getReferenceById(id));
+            return new ResponseEntity<>(deletedOrder, HttpStatus.I_AM_A_TEAPOT);
         } else {
             return ResponseEntity.notFound().build();
         }

@@ -29,6 +29,16 @@ public class OrderService {
         return savedOrder;
     }
 
+    public Order deleteOrder(Order order){
+        order.setOrderStatus("cancelled");
+        Order savedOrder = orderRepository.save(order);
+
+        // Send the order message to Kafka
+        OrderMessage orderMessage = convertToOrderMessage(savedOrder);
+        orderProducerService.sendOrderMessage(orderMessage);
+        return savedOrder;
+    }
+
     private OrderMessage convertToOrderMessage(Order order) {
         // Convert Order object to OrderMessage object
         OrderMessage orderMessage = new OrderMessage();
