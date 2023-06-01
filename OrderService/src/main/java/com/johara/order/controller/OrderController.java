@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,5 +62,18 @@ public class OrderController {
     @GetMapping
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
+    }
+
+
+    @GetMapping("/status/{status}")
+    public List<Order> getAllStatus(@PathVariable String status) {
+        List<Order> orders = orderRepository.findAll();
+        List<Order> filteredOrders = new ArrayList<>();
+        for (Order order : orders) {
+            if (order.getOrderStatus().equals(status)) {
+                filteredOrders.add(order);
+            }
+        }
+        return filteredOrders;
     }
 }
