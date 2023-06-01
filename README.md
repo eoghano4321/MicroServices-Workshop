@@ -12,6 +12,8 @@ The e-commerce system consists of the following microservices:
 
 - **Email Service**: Handles mock sending of emails
 
+- **User Service**: Handles user points and order history
+
 
 ## Setup Instructions
 
