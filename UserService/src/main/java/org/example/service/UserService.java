@@ -44,12 +44,14 @@ public class UserService {
         UserMessage userMessage = new UserMessage();
         userMessage.setId(user.getId());
         userMessage.setUserId(user.getUserId());
-        userMessage.setCustomerId(user.getCustomerId());
-        userMessage.setProductId(user.getProductId());
+//        userMessage.setCustomerId(user.getCustomerId());
+//        userMessage.setProductId(user.getProductId());
         userMessage.setQuantity(user.getQuantity());
-        userMessage.setUserDate(user.getUserDate());
+//        userMessage.setUserDate(user.getUserDate());
         userMessage.setUserStatus(user.getUserStatus());
+        userMessage.setUserEmail(user.getUserEmail());
 
         return userMessage;
     }
+
 }
