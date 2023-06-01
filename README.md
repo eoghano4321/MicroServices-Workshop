@@ -86,6 +86,7 @@ Follow the steps below to set up the e-commerce system on your local machine:
      - Product Service: `http://localhost:2222`
      - Order Service: `http://localhost:2223`
      - Email Service: `http://localhost:2224`
+     - User Service: `http://localhost:2225`
 
    - Use a tool like cURL or Postman to interact with the services' REST APIs.
 
