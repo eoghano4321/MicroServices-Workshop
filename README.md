@@ -12,6 +12,8 @@ The e-commerce system consists of the following microservices:
 
 - **Email Service**: Handles mock sending of emails
 
+- **User Service**: Handles user points and order history
+
 
 ## Setup Instructions
 
@@ -84,6 +86,7 @@ Follow the steps below to set up the e-commerce system on your local machine:
      - Product Service: `http://localhost:2222`
      - Order Service: `http://localhost:2223`
      - Email Service: `http://localhost:2224`
+     - User Service: `http://localhost:2225`
 
    - Use a tool like cURL or Postman to interact with the services' REST APIs.
 
@@ -119,7 +122,7 @@ Here we're going to use cURL to access the services via the command line. You ca
 
 - Create a new order:
   ```bash
-  curl -X POST -H "Content-Type: application/json" -d '{"orderId": "order-123", "customerId": 456, "productId": 1, "quantity": 2}' http://localhost:2223/orders
+  curl -X POST -H "Content-Type: application/json" -d '{"orderId": "order-123", "customerId": 456, "productId": 1, "quantity": 2, "orderStatus": "open"}' http://localhost:2223/orders
   ```
 
 - Get an order by ID:
