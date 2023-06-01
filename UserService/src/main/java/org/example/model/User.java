@@ -2,8 +2,6 @@ package org.example.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "users")
 public class User {
@@ -12,15 +10,17 @@ public class User {
     private Long id;
 
     @Column(unique = true)
-    private String userId;
+    private int userId;
 
-    private Long customerId;
+    //private Long customerId;
 
-    private Long productId;
+    //private Long productId;
 
     private int quantity;
 
-    private LocalDateTime userDate;
+    //private LocalDateTime userDate;
+
+    private String userEmail;
 
     private String userStatus;
 
@@ -29,12 +29,13 @@ public class User {
     public User() {
     }
 
-    public User(String userId, Long customerId, Long productId, int quantity, LocalDateTime userDate, String userStatus) {
+    public User(int userId, int quantity, String userEmail, String userStatus) {
         this.userId = userId;
-        this.customerId = customerId;
-        this.productId = productId;
+        //this.customerId = customerId;
+        //this.productId = productId;
         this.quantity = quantity;
-        this.userDate = userDate;
+        //this.userDate = userDate;
+        this.userEmail = userEmail;
         this.userStatus = userStatus;
     }
 
@@ -48,29 +49,29 @@ public class User {
         this.id = id;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
+//    public Long getCustomerId() {
+//        return customerId;
+//    }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+//    public void setCustomerId(Long customerId) {
+//        this.customerId = customerId;
+//    }
 
-    public Long getProductId() {
-        return productId;
-    }
+//    public Long getProductId() {
+//        return productId;
+//    }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+//    public void setProductId(Long productId) {
+//        this.productId = productId;
+//    }
 
     public int getQuantity() {
         return quantity;
@@ -78,6 +79,14 @@ public class User {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public void setUserEmail(String userEmail){
+        this.userEmail = userEmail;
+    }
+
+    public String getUserEmail(){
+        return this.userEmail;
     }
 
     public void setUserStatus(String userStatus){
@@ -88,11 +97,11 @@ public class User {
         return this.userStatus;
     }
 
-    public LocalDateTime getUserDate() {
-        return userDate;
-    }
-
-    public void setUserDate(LocalDateTime userDate) {
-        this.userDate = userDate;
-    }
+//    public LocalDateTime getUserDate() {
+//        return userDate;
+//    }
+//
+//    public void setUserDate(LocalDateTime userDate) {
+//        this.userDate = userDate;
+//    }
 }

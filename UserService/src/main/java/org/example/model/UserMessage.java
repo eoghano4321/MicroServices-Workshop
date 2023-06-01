@@ -9,15 +9,17 @@ import java.time.LocalDateTime;
 public class UserMessage {
     private Long id;
 
-    private String userId;
+    private int userId;
 
-    private Long customerId;
+    //private Long customerId;
 
-    private Long productId;
+    //private Long productId;
 
     private int quantity;
 
-    private LocalDateTime userDate;
+    //private LocalDateTime userDate;
+
+    private String userEmail;
 
     private String userStatus;
 
@@ -42,29 +44,29 @@ public class UserMessage {
         this.id = id;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
+//    public Long getCustomerId() {
+//        return customerId;
+//    }
+//
+//    public void setCustomerId(Long customerId) {
+//        this.customerId = customerId;
+//    }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+//    public Long getProductId() {
+//        return productId;
+//    }
+//
+//    public void setProductId(Long productId) {
+//        this.productId = productId;
+//    }
 
     public int getQuantity() {
         return quantity;
@@ -74,13 +76,13 @@ public class UserMessage {
         this.quantity = quantity;
     }
 
-    public LocalDateTime getUserDate() {
-        return userDate;
-    }
-
-    public void setUserDate(LocalDateTime userDate) {
-        this.userDate = userDate;
-    }
+//    public LocalDateTime getUserDate() {
+//        return userDate;
+//    }
+//
+//    public void setUserDate(LocalDateTime userDate) {
+//        this.userDate = userDate;
+//    }
 
     public void setUserStatus(String userStatus){
         this.userStatus = userStatus;
@@ -88,6 +90,14 @@ public class UserMessage {
 
     public String getUserStatus(){
         return this.userStatus;
+    }
+
+    public void setUserEmail(String userEmail){
+        this.userEmail = userEmail;
+    }
+
+    public String getUserEmail(){
+        return this.userEmail;
     }
 }
 
