@@ -68,13 +68,7 @@ public class OrderController {
 
     @GetMapping("/status/{status}")
     public List<Order> getAllStatus(@PathVariable String status) {
-        List<Order> orders = orderRepository.findAll();
-        List<Order> filteredOrders = new ArrayList<>();
-        for (Order order : orders) {
-            if (order.getOrderStatus().equals(status)) {
-                filteredOrders.add(order);
-            }
-        }
-        return filteredOrders;
+        List<Order> ordersByStatus = orderRepository.findByOrderStatus(status);
+        return ordersByStatus;
     }
 }
