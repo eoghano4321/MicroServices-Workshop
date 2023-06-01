@@ -76,4 +76,10 @@ public class OrderController {
         }
         return filteredOrders;
     }
+    @GetMapping("/user/{id}")
+    public List<Order>getAllUser(@PathVariable int id){
+        List<Order>ordersByUser=orderRepository.findByOrderUser(id);
+        return ordersByUser;
+    }
+
 }
