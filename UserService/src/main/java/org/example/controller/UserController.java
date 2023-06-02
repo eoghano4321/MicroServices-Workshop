@@ -1,9 +1,14 @@
 package org.example.controller;
 
+import jakarta.persistence.criteria.Order;
+import org.example.client.OrderServiceClient;
+import org.example.model.OrderDTO;
 import org.example.model.User;
 import org.example.repository.UserRepository;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +21,14 @@ import java.util.Optional;
 public class UserController {
     private final UserRepository userRepository;
     private UserService userService;
+    private final OrderServiceClient orderServiceClient;
+
 
     @Autowired
-    public UserController(UserRepository userRepository, UserService userService) {
+    public UserController(UserRepository userRepository, UserService userService, OrderServiceClient orderServiceClient) {
         this.userRepository = userRepository;
         this.userService = userService;
+        this.orderServiceClient = orderServiceClient;
     }
 
     @GetMapping("/{id}")
@@ -62,5 +70,12 @@ public class UserController {
     @GetMapping
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @GetMapping("/orderHist/{id}")
+    public String getMyOrders(@PathVariable Long id){
+
+        return orderServiceClient.getOrderByUser(id).toString();
+
     }
 }

@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.kafka.UserProducerService;
+import org.example.client.OrderServiceClient;
 import org.example.model.User;
 import org.example.model.UserMessage;
 import org.example.repository.UserRepository;
@@ -11,11 +12,13 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
     private final UserProducerService userProducerService;
+    //private final OrderServiceClient orderServiceClient;
 
     @Autowired
-    public UserService(UserRepository userRepository, UserProducerService userProducerService) {
+    public UserService(UserRepository userRepository, UserProducerService userProducerService){//, OrderServiceClient orderServiceClient) {
         this.userRepository = userRepository;
         this.userProducerService = userProducerService;
+        //this.orderServiceClient = orderServiceClient;
     }
 
     public User createUser(User user) {
